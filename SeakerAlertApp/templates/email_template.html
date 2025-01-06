@@ -1,0 +1,14 @@
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
+
+def send_html_email_notification(subject, context, recipient_list):
+    message = render_to_string('email_template.html', context)
+    send_mail(
+        subject,
+        message,
+        settings.DEFAULT_FROM_EMAIL,
+        recipient_list,
+        fail_silently=False,
+        html_message=message
+    )

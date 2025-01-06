@@ -1,0 +1,21 @@
+<h1>System Metrics Dashboard</h1>
+<table>
+    <tr>
+        <th>Timestamp</th>
+        <th>CPU (%)</th>
+        <th>RAM (GB)</th>
+        <th>Disk (GB)</th>
+        <th>Uptime (hrs)</th>
+        <th>Temperature (°C)</th>
+    </tr>
+    {% for metric in metrics %}
+    <tr>
+        <td>{{ metric.timestamp }}</td>
+        <td>{{ metric.cpu_percent }}</td>
+        <td>{{ metric.ram_used_gb }}</td>
+        <td>{{ metric.disk_used_gb }}</td>
+        <td>{{ metric.uptime_hours }}</td>
+        <td>{{ metric.temperature }}</td>
+    </tr>
+    {% endfor %}
+</table>
